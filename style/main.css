@@ -121,7 +121,7 @@ body {
   transition: 0.3s;
 }
 
-/* Floating Hearts */
+/* Floating Hearts - Enhanced Responsive */
 #floatingHearts {
   position: fixed;
   top: 0;
@@ -143,14 +143,33 @@ body {
   0% {
     bottom: -50px;
     opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
   }
   100% {
     bottom: 100vh;
     opacity: 0;
+    transform: scale(0.8);
   }
 }
 
-/* Balloons Container */
+/* Responsive hearts */
+@media screen and (max-width: 768px) {
+  .floating-heart {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .floating-heart {
+    font-size: 14px;
+  }
+}
+
+/* Balloons Container - Enhanced Responsive */
 #balloonsContainer {
   position: fixed;
   top: 0;
@@ -173,20 +192,42 @@ body {
 @keyframes floatUpBalloon {
   0% {
     bottom: -100px;
-    transform: translateX(0) rotate(0deg);
+    transform: translateX(0) rotate(0deg) scale(1);
   }
   25% {
-    transform: translateX(20px) rotate(5deg);
+    transform: translateX(20px) rotate(5deg) scale(1.1);
   }
   50% {
-    transform: translateX(-10px) rotate(-3deg);
+    transform: translateX(-10px) rotate(-3deg) scale(0.9);
   }
   75% {
-    transform: translateX(15px) rotate(2deg);
+    transform: translateX(15px) rotate(2deg) scale(1.05);
   }
   100% {
     bottom: 100vh;
-    transform: translateX(0) rotate(0deg);
+    transform: translateX(0) rotate(0deg) scale(0.8);
+  }
+}
+
+/* Responsive balloons */
+@media screen and (max-width: 768px) {
+  .balloon {
+    width: 50px;
+    height: 65px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .balloon {
+    width: 40px;
+    height: 55px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .balloon {
+    width: 35px;
+    height: 48px;
   }
 }
 
@@ -325,6 +366,8 @@ body {
 .baloons img {
   display: inline-block;
   position: absolute;
+  max-width: 100px;
+  height: auto;
 }
 
 .baloons img:nth-child(even) {
@@ -337,6 +380,49 @@ body {
 
 .baloons img:nth-child(3n + 0) {
   left: 30%;
+}
+
+/* Responsive balloon images */
+@media screen and (max-width: 768px) {
+  .baloons img {
+    max-width: 80px;
+  }
+  
+  .baloons img:nth-child(even) {
+    left: -15%;
+  }
+  
+  .baloons img:nth-child(odd) {
+    right: -15%;
+  }
+  
+  .baloons img:nth-child(3n + 0) {
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .baloons img {
+    max-width: 60px;
+  }
+  
+  .baloons img:nth-child(even) {
+    left: -20%;
+  }
+  
+  .baloons img:nth-child(odd) {
+    right: -20%;
+  }
+  
+  .baloons img:nth-child(3n + 0) {
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .baloons img {
+    max-width: 50px;
+  }
 }
 
 .seven, .eight {
@@ -431,12 +517,56 @@ body {
   z-index: 3;
 }
 
-/* Media Queries */
+/* Media Queries - Enhanced Responsive Design */
+
+/* Large tablets and small desktops */
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .one {
+    font-size: 3.5rem;
+  }
+  
+  .four .text-box {
+    width: 80%;
+    padding: 15px;
+  }
+  
+  .idea-5 {
+    font-size: 3.5rem;
+  }
+  
+  .idea-6 span {
+    font-size: 12rem;
+  }
+  
+  .wish-hbd {
+    font-size: 2.5em;
+  }
+}
+
+/* Tablets */
 @media screen and (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+  
+  .nav-container {
+    height: 60px;
+    padding: 0 15px;
+  }
+  
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+  
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 70px;
+    top: 60px;
     flex-direction: column;
     background-color: var(--nav-bg);
     width: 100%;
@@ -444,6 +574,7 @@ body {
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     padding: 20px 0;
+    z-index: 999;
   }
 
   .nav-menu.active {
@@ -464,6 +595,348 @@ body {
 
   .hamburger.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .one {
+    font-size: 3rem;
+  }
+  
+  .two {
+    font-size: 1.1rem;
+    padding: 0 20px;
+  }
+  
+  .four .text-box {
+    width: 85%;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .text-box .fake-btn {
+    bottom: -45px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .five p {
+    font-size: 1.8rem;
+  }
+  
+  .idea-5 {
+    font-size: 3rem;
+  }
+  
+  .idea-6 span {
+    font-size: 10rem;
+  }
+  
+  .six .hat {
+    width: 60px;
+    left: 39%;
+  }
+  
+  .wish-hbd {
+    font-size: 2em;
+  }
+  
+  .wish h5 {
+    font-size: 1.6rem;
+  }
+  
+  .nine p {
+    font-size: 1.8rem;
+    padding: 0 20px;
+  }
+  
+  .music-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .balloon-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Large mobile phones */
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+  
+  .one {
+    font-size: 2.5rem;
+    padding: 0 15px;
+  }
+  
+  .two {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+  
+  .four .text-box {
+    width: 90%;
+    padding: 10px;
+    font-size: 0.85rem;
+    border-width: 2px;
+  }
+  
+  .text-box .fake-btn {
+    bottom: -40px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .five p {
+    font-size: 1.6rem;
+    padding: 0 15px;
+  }
+  
+  .idea-5 {
+    font-size: 2.5rem;
+  }
+  
+  .idea-6 span {
+    font-size: 8rem;
+  }
+  
+  .six .hat {
+    width: 50px;
+    left: 37%;
+  }
+  
+  .wish-hbd {
+    font-size: 1.8em;
+    padding: 0 15px;
+  }
+  
+  .wish h5 {
+    font-size: 1.4rem;
+    padding: 0 15px;
+  }
+  
+  .nine p {
+    font-size: 1.6rem;
+    padding: 0 15px;
+  }
+}
+
+/* Small mobile phones */
+@media screen and (max-width: 500px) {
+  .nav-logo span {
+    display: none;
+  }
+  
+  .nav-logo i {
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    width: 100%;
+  }
+
+  .one {
+    font-size: 2.2rem;
+    padding: 0 10px;
+  }
+  
+  .two {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  .four .text-box {
+    width: 95%;
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  .text-box .fake-btn {
+    bottom: -38px;
+    right: 5px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .five p {
+    font-size: 1.4rem;
+    padding: 0 10px;
+  }
+
+  .idea-5 span {
+    display: block;
+  }
+  
+  .idea-5 {
+    font-size: 2.2rem;
+  }
+
+  .idea-6 span {
+    font-size: 7rem;
+  }
+
+  .six .hat {
+    width: 45px;
+    left: 35%;
+  }
+
+  .wish-hbd {
+    font-size: 1.6em;
+    padding: 0 10px;
+  }
+
+  .wish h5 {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .nine p {
+    font-size: 1.4rem;
+    font-weight: lighter;
+    padding: 0 10px;
+  }
+  
+  .music-btn {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 1rem;
+  }
+  
+  .balloon-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 400px) {
+  .one {
+    font-size: 2rem;
+  }
+  
+  .four .text-box {
+    width: 98%;
+    margin: 0 1%;
+  }
+  
+  .five p {
+    font-size: 1.2rem;
+  }
+  
+  .idea-5 {
+    font-size: 2rem;
+  }
+  
+  .idea-6 span {
+    font-size: 6rem;
+  }
+  
+  .wish-hbd {
+    font-size: 1.4em;
+  }
+  
+  .nine p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .container > div {
+    top: 10vh;
+  }
+  
+  .one {
+    font-size: 2.5rem;
+  }
+  
+  .six .hat {
+    top: -25%;
+    width: 60px;
+  }
+  
+  .music-btn {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .nav-logo i, .music-btn i {
+    transform: scale(0.9);
+  }
+}
+
+/* Utility Classes for Responsive Design */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+  
+  .show-mobile {
+    display: block;
+  }
+}
+
+/* Improved touch targets for mobile */
+@media screen and (max-width: 768px) {
+  .nav-link, .balloon-btn, .music-btn {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-menu li {
+    margin: 8px 0;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+.nav-link:focus,
+.balloon-btn:focus,
+.music-btn:focus,
+#replay:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling enhancement */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
@@ -600,5 +1073,56 @@ hr.rounded {
   .nine p {
     font-size: 1.5rem;
     font-weight: lighter;
+  }
+}
+
+/* Footer Styles - Enhanced Responsive */
+.footer {
+  background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+  padding: 20px 15px;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+.footer p {
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease;
+}
+
+.footer p:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 18px 12px;
+    margin-top: 40px;
+  }
+  
+  .footer p {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    padding: 15px 10px;
+    margin-top: 30px;
+  }
+  
+  .footer p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footer p {
+    font-size: 0.9rem;
   }
 }

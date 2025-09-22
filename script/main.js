@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
     setupBalloons();
 });
 
-// Navigation Setup
+// Navigation Setup - Enhanced for responsive design
 function setupNavigation() {
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
@@ -41,6 +41,22 @@ function setupNavigation() {
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
+        });
+        
+        // Close menu on window resize
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
         });
     }
     
@@ -128,7 +144,11 @@ function launchBalloons() {
     
     const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
     
-    for (let i = 0; i < 15; i++) {
+    // Adjust balloon count based on screen size
+    const isMobile = window.innerWidth <= 768;
+    const balloonCount = isMobile ? 10 : 15;
+    
+    for (let i = 0; i < balloonCount; i++) {
         setTimeout(() => {
             createBalloon(container, colors[Math.floor(Math.random() * colors.length)]);
         }, i * 200);
@@ -141,6 +161,11 @@ function createBalloon(container, color) {
     balloon.style.backgroundColor = color;
     balloon.style.left = Math.random() * 100 + '%';
     balloon.style.animationDuration = (Math.random() * 3 + 5) + 's';
+    
+    // Adjust balloon count based on screen size
+    const isMobile = window.innerWidth <= 768;
+    const balloonSize = isMobile ? 0.8 : 1;
+    balloon.style.transform = `scale(${balloonSize})`;
     
     container.appendChild(balloon);
     
